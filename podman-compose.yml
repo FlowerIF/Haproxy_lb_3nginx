@@ -1,0 +1,50 @@
+version: '3.8'
+
+
+services:
+  nginx1:
+    image: nginx:alpine
+    container_name: nginx1
+    volumes:
+      - ./nginx/nginx1.html:/usr/share/nginx/html/index.html:Z
+    networks:
+      - halabnet
+    security_opt:
+      - label=disable
+  nginx2:
+    image: nginx:alpine
+    container_name: nginx2
+    volumes:
+      - ./nginx/nginx2.html:/usr/share/nginx/html/index.html:Z
+    networks:
+      - halabnet
+    security_opt:
+      - label=disable
+  nginx3:
+    image: nginx:alpine
+    container_name: nginx3
+    volumes:
+      - ./nginx/nginx3.html:/usr/share/nginx/html/index.html:Z
+    networks:
+      - halabnet
+    security_opt:
+      - label=disable
+  haproxy:
+    image: haproxy:2.6-alpine
+    container_name: haproxy
+    ports: 
+      - "6789:80"
+    volumes:
+      - ./haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:Z
+    networks:
+      - halabnet
+    depends_on:
+      - nginx1
+      - nginx2
+      - nginx3
+    security_opt:
+      - label=disable
+    user: root
+
+networks:
+  halabnet:
