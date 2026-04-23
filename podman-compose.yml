@@ -42,9 +42,7 @@ services:
       - nginx1
       - nginx2
       - nginx3
-    security_opt:
-      - label=disable
-    user: root
+    
 
 networks:
   halabnet:
