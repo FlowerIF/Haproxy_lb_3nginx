@@ -9,9 +9,10 @@ HAProxy đứng trước cân bằng tải theo thuật toán round‑robin.
 for i in {1..6}; do curl -s http://localhost:6789; done
 Kết quả mong đợi
 Luân phiên hiển thị NGINX 1, NGINX 2, NGINX 3.
+ ```html
 Ví dụ:
  [admin@localhost haproxylab]$ for i in {1..10}; do curl -s http://localhost:6789; done
- ```html
+
 <h1>Response from NGINX 1</h1>
 <h1>Response from NGINX 2</h1>
 <h1>Response from NGINX 3</h1>
