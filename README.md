@@ -1,4 +1,5 @@
 HAProxy Lab – Cân bằng tải Nginx với Podman cơ bản
+
 ** 
 Tạo 3 container chạy Nginx, mỗi container trả về một response khác nhau.
 HAProxy đứng trước cân bằng tải theo thuật toán round‑robin.
